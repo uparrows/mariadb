@@ -13,7 +13,7 @@ RUN apt-get update && \
     mediainfo && \
     add-apt-repository ppa:ondrej/php && \
     apt-get update && \
-    apt-get install -y \
+    apt-get install -y whatever \
     php7-apcu \
     php7-cgi \
     php7-ctype \
