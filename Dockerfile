@@ -3,6 +3,7 @@ FROM mariadb:10
 
 RUN \
   echo "**** install packages ****" && \
+  apt-get update \
   apt-get install \
     curl \
     exiftool \
