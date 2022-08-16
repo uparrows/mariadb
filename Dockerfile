@@ -2,7 +2,7 @@ FROM mariadb:10
 
 
 RUN apt-get update && \
-    apt-get install -y whatever \
+    apt-get install -y \
     software-properties-common \
     curl \
     exiftool \
@@ -13,7 +13,7 @@ RUN apt-get update && \
     mediainfo && \
     add-apt-repository ppa:ondrej/php && \
     apt-get update && \
-    apt-get install -y whatever \
+    apt-get install -y \
     php7-apcu \
     php7-cgi \
     php7-ctype \
