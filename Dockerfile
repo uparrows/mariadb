@@ -3,8 +3,7 @@ FROM mariadb:10
 
 RUN \
   echo "**** install packages ****" && \
-  apt-get update \
-  apt-get install \
+  apt-get update && install \
     curl \
     exiftool \
     ffmpeg \
