@@ -8,7 +8,7 @@ RUN apt-get update && \
     exiftool \
     ffmpeg \
     imagemagick \
-    libjpeg-turbo \
+    libjpeg62-dev \
     lynx \
     mediainfo && \
     add-apt-repository ppa:ondrej/php && \
