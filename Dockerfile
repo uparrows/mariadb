@@ -2,14 +2,19 @@ FROM mariadb:10
 
 
 RUN apt-get update && \
-	apt-get install \
+    apt-get install \
+    python-software-properties \
+    software-properties-common \
     curl \
     exiftool \
     ffmpeg \
     imagemagick \
-    libjpeg-turbo-utils \
+    libjpeg62-turbo \
     lynx \
-    mediainfo \
+    mediainfo && \
+    add-apt-repository ppa:ondrej/php && \
+    apt-get update && \
+    apt-get install \
     php7-apcu \
     php7-cgi \
     php7-ctype \
