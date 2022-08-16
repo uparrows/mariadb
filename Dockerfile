@@ -1,4 +1,8 @@
 FROM dezhao/mariadb:latest
+# set version label
+ARG BUILD_DATE
+ARG VERSION
+ARG PIWIGO_RELEASE
 RUN \
   echo "**** install packages ****" && \
   apk add --no-cache --upgrade \
