@@ -1,9 +1,8 @@
 FROM mariadb:10
 
 
-RUN \
-  echo "**** install packages ****" && \
-  apt-get update && install \
+RUN apt-get update && \
+	apt-get install \
     curl \
     exiftool \
     ffmpeg \
@@ -30,7 +29,7 @@ RUN \
     re2c \
     unzip \
     wget && \
-  apt-get clean \
+  apt-get clean && \
   echo "**** download piwigo ****" && \
   if [ -z ${PIWIGO_RELEASE+x} ]; then \
     PIWIGO_RELEASE=$(curl -sX GET "https://api.github.com/repos/Piwigo/Piwigo/releases/latest" \
