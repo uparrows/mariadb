@@ -1,3 +1,2 @@
-# piwigo
-piwigo-docker
-集成mariadb数据库的piwigo镜像
+# mariadb-alplane
+自用mariadb镜像
