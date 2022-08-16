@@ -1,19 +1,15 @@
-FROM mariadb:10
+FROM yobasystems/alpine-mariadb
 
-
-RUN apt-get update && \
-    apt-get install -y \
-    software-properties-common \
+RUN \
+  echo "**** install packages ****" && \
+  apk add --no-cache --upgrade \
     curl \
     exiftool \
     ffmpeg \
     imagemagick \
-    libjpeg62-dev \
+    libjpeg-turbo-utils \
     lynx \
-    mediainfo && \
-    add-apt-repository ppa:ondrej/php && \
-    apt-get update && \
-    apt-get install -y \
+    mediainfo \
     php7-apcu \
     php7-cgi \
     php7-ctype \
@@ -33,7 +29,6 @@ RUN apt-get update && \
     re2c \
     unzip \
     wget && \
-  apt-get clean && \
   echo "**** download piwigo ****" && \
   if [ -z ${PIWIGO_RELEASE+x} ]; then \
     PIWIGO_RELEASE=$(curl -sX GET "https://api.github.com/repos/Piwigo/Piwigo/releases/latest" \
@@ -48,9 +43,9 @@ RUN apt-get update && \
   # The max post size is 8M by default, it must be at least max_filesize
   sed -ri 's/^post_max_size = .*/post_max_size = 100M/' /etc/php7/php.ini
 
-# copy local files
+# copy local files
 COPY root/ /
 
-# ports and volumes
+# ports and volumes
 EXPOSE 80 443
-VOLUME /config /gallery
+VOLUME /config /gallery /var/lib/mysql
