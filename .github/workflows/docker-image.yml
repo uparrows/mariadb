@@ -7,8 +7,8 @@ on:
     branches: [ main ]
 
 env:
-  APP_NAME: piwigo
-  DOCKERHUB_REPO: dezhao/piwigo
+  APP_NAME: mariadb
+  DOCKERHUB_REPO: dezhao/mariadb
 
 jobs:
   main:
@@ -53,4 +53,4 @@ jobs:
           # 生成两个 docker tag: ${APP_VERSION} 和 latest
           tags: |
             ${{ env.DOCKERHUB_REPO }}:latest
-            ${{ env.DOCKERHUB_REPO }}:12.3.0
+            ${{ env.DOCKERHUB_REPO }}:10.6.8
